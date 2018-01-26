@@ -322,9 +322,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/01/25/第一个博客/" itemprop="url">
+            <a class="post-title-link" href="/2018/01/25/GitHub+hexo+next/" itemprop="url">
               
-                <span itemprop="name">GitHub+hexo+next搭建第博客</span>
+                <span itemprop="name">GitHub+hexo+next搭建博客</span>
               
             </a>
         
@@ -680,7 +680,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -882,7 +882,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('-1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

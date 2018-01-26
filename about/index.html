@@ -98,17 +98,17 @@
 
 
 
-<meta name="description" content="Dream to Camp.Nuo!">
+<meta name="description" content="我有故事   你有酒吗">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="Dream to Camp.Nuo!">
+<meta property="og:description" content="我有故事   你有酒吗">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T01:51:07.253Z">
+<meta property="og:updated_time" content="2018-01-26T13:37:45.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
-<meta name="twitter:description" content="Dream to Camp.Nuo!">
+<meta name="twitter:description" content="我有故事   你有酒吗">
 
 
 
@@ -385,7 +385,9 @@
       
 
       
-        
+        <p>我有故事  </p>
+<p>你有酒吗</p>
+
       
     </div>
     
@@ -453,6 +455,11 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzU5OC8xMDE1Mw=="></div>
+    </div>
 
   
 
@@ -763,6 +770,17 @@
 
 
   
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
 
 
 
@@ -782,7 +800,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -984,7 +1002,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('-1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

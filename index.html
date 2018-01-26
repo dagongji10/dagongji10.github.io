@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/第一个博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/GitHub+hexo+next/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChengQian">
@@ -337,7 +337,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/25/第一个博客/" itemprop="url">GitHub+hexo+next搭建第博客</a></h1>
+                <a class="post-title-link" href="/2018/01/25/GitHub+hexo+next/" itemprop="url">GitHub+hexo+next搭建博客</a></h1>
         
 
         <div class="post-meta">
@@ -411,17 +411,11 @@
       
         
           
-          1、搭建环境准备
-* node.js的安装（简单）
-* git的安装（简单）
-* gitHub账户的配置（最终要得到一个GitHub的可访问网址，就是一个仓库repo）
-  对于上面这三个步骤网上有很多教程，对照教程就可以。
-2、安装Hexo
-* 新建文件夹Hexo》blog；打开cmd面板，定位到
+          很多人认为新浪、CSDN的博客已经够方便了，为什么还要大费周折自己搭建呢？这两者确实给我们提供了一个方便的途径分享学习经验，但是其框架都是确定的，作者除了选择主题风格（大多数排版布局等）可选外没有太多发挥空间。本文将介绍如何利用GitHub这个平台搭建属于自己的博客，对于自己搭建的博客你可以任意发挥
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/25/第一个博客/#more" rel="contents">
+            <a class="btn" href="/2018/01/25/GitHub+hexo+next/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -798,7 +792,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -1000,7 +994,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('-1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
