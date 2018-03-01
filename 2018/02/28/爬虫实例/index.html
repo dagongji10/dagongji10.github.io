@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="大公鸡の窝">
 <meta property="og:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T00:59:16.697Z">
+<meta property="og:updated_time" content="2018-03-01T01:08:19.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫实例--Python百科词条">
 <meta name="twitter:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
@@ -432,7 +432,7 @@
 2、安装Eclipse软件：从蒲公英上下载eclipse-java-oxygen-R-win32-x86_64，直接打开exe就是
 3、安装Python 2.X：在官网下载Python 2.7.14，默认安装到C盘，之后配置环境变量---将“C:\Python27”、“C:\Python27\Scripts”添加到path路径，然后将python.exe改成python2.exe
 4、环境配置：打开Eclipse》Windows》Preferences》Interpreters》Python Interpreter，在右侧新建，在弹出来的窗口第二个对话框选择python2.exe，一直确定就好。
-</code></pre><p>在Eclipse中新建pyDev Project，命名imooc；<br>右键imooc，新建pyDev package，命名baike_spider；<br>右键test，新建pyDev module，分别命名spider_main、url_manager、html_downloader、html_parser、html_outputer。</p>
+</code></pre><p>在Eclipse中新建pyDev Project，命名imooc；<br>右键imooc，新建pyDev package，命名baike_spider；<br>右键baike_spider，新建pyDev module，分别命名spider_main、url_manager、html_downloader、html_parser、html_outputer。</p>
 <p> <strong>1、调度程序:spider_main</strong> </p>
 <pre><code># coding:utf-8
 
@@ -594,7 +594,7 @@ class HtmlOutputer(object):
         fout.write(&quot;&lt;/html&gt;&quot;)
 
         fout.close()
-</code></pre><p>运行spider_main，刷新baike_spider项目，会看到新生成的output.html；找到该本地文件，直接用浏览器打开，就能看到爬虫抓取的数据信息</p>
+</code></pre><p>运行spider_main，刷新baike_spider项目，会看到新生成的output.html；找到该本地文件，直接用浏览器打开，就能看到爬虫抓取的数据信息.</p>
 
       
     </div>
@@ -755,7 +755,7 @@ class HtmlOutputer(object):
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
