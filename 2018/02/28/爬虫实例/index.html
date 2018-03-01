@@ -97,7 +97,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,爬虫," />
 
 
 
@@ -110,16 +110,18 @@
 
 
 
-<meta name="description" content="Dream to Camp.Nuo!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="大公鸡の窝">
-<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
+<meta name="description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
+<meta name="keywords" content="Python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫实例--Python百科词条">
+<meta property="og:url" content="http://yoursite.com/2018/02/28/爬虫实例/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="Dream to Camp.Nuo!">
+<meta property="og:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-01T00:59:16.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大公鸡の窝">
-<meta name="twitter:description" content="Dream to Camp.Nuo!">
+<meta name="twitter:title" content="爬虫实例--Python百科词条">
+<meta name="twitter:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
 
 
 
@@ -149,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/28/爬虫实例/"/>
 
 
 
 
 
-  <title>标签: hexo | 大公鸡の窝</title>
+  <title>爬虫实例--Python百科词条 | 大公鸡の窝</title>
   
 
 
@@ -174,7 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/dagongji10">
 		<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
@@ -315,54 +317,369 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>hexo<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/爬虫实例/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChengQian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大公鸡の窝">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/25/GitHub+hexo+next/" itemprop="url">
-              
-                <span itemprop="name">GitHub+hexo+next搭建博客</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">爬虫实例--Python百科词条</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-25T15:19:20+08:00"
-              content="2018-01-25" >
-          01-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T22:10:29+08:00">
+                2018-02-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Diary/" itemprop="url" rel="index">
+                    <span itemprop="name">Diary</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python最基础的应用就是爬虫。<br>本文是看了<a href="https://www.imooc.com/learn/563" target="_blank" rel="noopener">慕课网一个视频教程</a>后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。   </p>
+<hr>
+<p>目标：抓取百度百科Python词条相关词条网页——标题和简介<br>入口：<a href="https://baike.baidu.com/item/Python" target="_blank" rel="noopener">https://baike.baidu.com/item/Python</a><br>URL格式:</p>
+<pre><code>--词条页面URL：/item/... 
+</code></pre><p>数据格式：</p>
+<pre><code>--标题：&lt;dd class=&quot;lemmaWgt-lemmaTitle-title&quot;&gt;&lt;h1&gt;Python&lt;/h1&gt;
+--简介：&lt;div class=&quot;lemma-summary&quot; label-module=&quot;lemmaSummary&quot;&gt;
+</code></pre><p>页面编码：utf-8<br>开发环境：</p>
+<pre><code>1、安装JRE环境：下载jdk-8u161-windows-x64，安装即可
+2、安装Eclipse软件：从蒲公英上下载eclipse-java-oxygen-R-win32-x86_64，直接打开exe就是
+3、安装Python 2.X：在官网下载Python 2.7.14，默认安装到C盘，之后配置环境变量---将“C:\Python27”、“C:\Python27\Scripts”添加到path路径，然后将python.exe改成python2.exe
+4、环境配置：打开Eclipse》Windows》Preferences》Interpreters》Python Interpreter，在右侧新建，在弹出来的窗口第二个对话框选择python2.exe，一直确定就好。
+</code></pre><p>在Eclipse中新建pyDev Project，命名imooc；<br>右键imooc，新建pyDev package，命名baike_spider；<br>右键test，新建pyDev module，分别命名spider_main、url_manager、html_downloader、html_parser、html_outputer。</p>
+<p> <strong>1、调度程序:spider_main</strong> </p>
+<pre><code># coding:utf-8
+
+from baike_spider import url_manager,html_downloader,html_parser,html_outputer
+
+class SpiderMain(object):
+    def __init__(self):                                              //初始化方法
+        self.urls = url_manager.UrlManager()                         //url管理器
+        self.downloader = html_downloader.HtmlDownloader()           //网页下载器
+        self.parser = html_parser.HtmlParser()                       //解析器
+        self.outputer = html_outputer.HtmlOutputer()                 //内容输出器
+
+    def craw(self, root_url):
+        count = 1                                                    //计数器
+        self.urls.add_new_url(root_url)                              //添加根网址到url管理器
+        while self.urls.has_new_url():                               //开始循环
+            try:
+                new_url = self.urls.get_new_url()                    //取第一个url
+                print &apos;craw %d : %s&apos; % (count,new_url)               //输出url
+                html_cont = self.downloader.download(new_url)        //下载网页内容
+                new_urls,new_data = self.parser.parse(new_url,html_cont)     //获取新的url和价值数据
+                self.urls.add_new_urls(new_urls)                     //添加新的url到url管理器
+                self.outputer.collect_data(new_data)                 //收集价值数据
+
+                if count == 1000:
+                    break
+
+                count = count + 1
+            except:
+                print &apos;craw failed&apos;
+
+        self.outputer.output_html()                                //输出数据到网页
+        print &apos;finished!&apos;
+
+
+if __name__==&quot;__main__&quot;:
+    root_url = &quot;https://baike.baidu.com/item/Python&quot;               //原始根网址
+    obj_spider = SpiderMain()                                      //主程序入口
+    obj_spider.craw(root_url)                                      //爬虫启动
+</code></pre><p><strong>2、url管理器：url_manager</strong></p>
+<pre><code># coding:utf-8
+
+class UrlManager(object):
+    def __init__(self):                //初始化方法
+        self.new_urls = set()          //未爬URL容器
+        self.old_urls = set()          //已爬URL容器
+
+    def add_new_url(self,url):          //单个URL存储方法
+        if url is None:
+            return
+
+        if url not in self.new_urls and url not in self.old_urls:
+            self.new_urls.add(url)
+
+    def add_new_urls(self,urls):          //多个URL存储方法
+        if urls is None or len(urls) == 0:
+            return
+        for url in urls:
+            self.new_urls.add(url)
+
+    def has_new_url(self):               //判断是否还有未爬URL
+        return len(self.new_urls) != 0
+
+    def get_new_url(self):               //获取一个未爬URL
+        new_url = self.new_urls.pop()
+        self.old_urls.add(new_url)
+        return new_url
+</code></pre><p><strong>3、网页下载：html_downloader</strong></p>
+<pre><code># coding:utf-8
+
+import urllib2
+
+class HtmlDownloader(object):
+    def download(self,url):                    //下载网页方法
+        if url is None:
+            return None
+
+        response = urllib2.urlopen(url)          //请求数据
+
+        if response.getcode() != 200:            //状态码如果等于200，说明请求成功
+            return None
+
+        return response.read()                   //读取数据
+</code></pre><p><strong>4、解释器：html_parser</strong></p>
+<pre><code># coding:utf-8
+
+from bs4 import BeautifulSoup
+import urlparse
+import re
+
+class HtmlParser(object):
+    def parse(self,page_url,html_cont):               //解释器方法：page_url是网址参数，html_cont是网页内容参数
+        if page_url is None or html_cont is None:
+            return
+
+        soup = BeautifulSoup(html_cont,&apos;html.parser&apos;,from_encoding=&apos;utf-8&apos;)     //解释器对象
+
+        new_urls = self._get_new_urls(page_url,soup)          //获取新网址，实现方法在下面
+        new_data = self._get_new_data(page_url,soup)          //获取数据，实现方法在下面
+
+        return new_urls,new_data
+
+
+    def _get_new_urls(self, page_url, soup):                           //新网址获取方法，这个要根据具体网址信息来设计，不是一成不变的
+        new_urls = set()          //网址容器     
+
+        links = soup.find_all(&apos;a&apos;,href=re.compile(r&quot;/item/&quot;))          //获取标签为a、包含“/item/”的链接信息（这个信息事实上是残缺的）
+        for link in links:                                             //这里用到正则表达式
+            new_url = link[&apos;href&apos;]                                     
+            new_full_url = urlparse.urljoin(page_url,new_url)          //我们这里将残缺的网址信息和网址参数合并作为新的URL
+            new_urls.add(new_full_url)
+        return new_urls
+
+
+    def _get_new_data(self, page_url, soup):          //价值信息获取方法
+        res_data = {}     //容器，字典结构
+
+        res_data[&apos;url&apos;] = page_url               //将网址存入数据容器
+
+        # &lt;dd class=&quot;lemmaWgt-lemmaTitle-title&quot;&gt; &lt;h1&gt;Python&lt;/h1&gt;          //这是我当时查看的网页源代码的格式
+        title_node = soup.find(&apos;dd&apos;,class_=&quot;lemmaWgt-lemmaTitle-title&quot;).find(&quot;h1&quot;)     //获取标题节点
+        res_data[&apos;title&apos;] = title_node.get_text()                                      //存储标题
+
+        # &lt;div class=&quot;lemma-summary&quot; label-module=&quot;lemmaSummary&quot;&gt;
+        summary_node = soup.find(&apos;div&apos;,class_=&quot;lemma-summary&quot;)          //获取简介内容节点
+        res_data[&apos;summary&apos;] = summary_node.get_text()                   //存储简介信息
+
+        return res_data
+</code></pre><p><strong>5、输出：html_outputer</strong></p>
+<pre><code># coding:utf-8
+
+class HtmlOutputer(object):
+    def __init__(self):          //初始化方法
+        self.datas = []
+
+
+    def collect_data(self,data):     //数据收集方法
+        if data is None:
+            return
+        self.datas.append(data)
+
+
+    def output_html(self):
+        fout = open(&apos;output.html&apos;,&apos;w&apos;)     //新建一个.html文件
+
+        fout.write(&quot;&lt;html&gt;&quot;)               //将爬到的内容输出为html
+        fout.write(&quot;&lt;body&gt;&quot;)               //所以这里输出为html表格形式
+        fout.write(&quot;&lt;table&gt;&quot;)
+
+        for data in self.datas:
+            fout.write(&quot;&lt;tr&gt;&quot;)
+            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&apos;url&apos;])
+            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&apos;title&apos;].encode(&apos;utf-8&apos;))
+            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&apos;summary&apos;].encode(&apos;utf-8&apos;))
+            fout.write(&quot;&lt;/tr&gt;&quot;)
+
+        fout.write(&quot;&lt;/table&gt;&quot;)
+        fout.write(&quot;&lt;/body&gt;&quot;)
+        fout.write(&quot;&lt;/html&gt;&quot;)
+
+        fout.close()
+</code></pre><p>运行spider_main，刷新baike_spider项目，会看到新生成的output.html；找到该本地文件，直接用浏览器打开，就能看到爬虫抓取的数据信息</p>
 
       
     </div>
+    
+    
+    
 
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+	
+	<div>
+      
+        
+      
+	</div>
+	
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="ChengQian wechat" style="width: 200px; max-width: 100%;"/>
+    <div>有问题可以通过微信一起讨论！</div>
+</div>
+
+      </div>
+    
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/爬虫/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/25/GitHub+hexo+next/" rel="next" title="GitHub+hexo+next搭建博客">
+                <i class="fa fa-chevron-left"></i> GitHub+hexo+next搭建博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -370,6 +687,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -643,6 +964,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
