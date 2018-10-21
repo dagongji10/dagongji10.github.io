@@ -97,7 +97,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TensorFlow,CIFAR10," />
 
 
 
@@ -110,16 +110,28 @@
 
 
 
-<meta name="description" content="Dream to Camp.Nuo!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="大公鸡の窝">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="数据集######概述该包括60000张RGB图像，每张图像尺寸为32*32，分为10个类，每类6000张10个类分别是：飞机， 汽车， 鸟， 猫， 鹿， 狗， 青蛙， 马， 船，卡车60000张图像中，50000张用于训练，10000张用于测试；测试数据分为5批，每批10000张，其中每类图像数量不一定相等Python版本数据在这里下载，MATLAB版本数据在这里下载，二进制版本数据在这里下载">
+<meta name="keywords" content="TensorFlow,CIFAR10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow+cifar10模型训练到实例应用">
+<meta property="og:url" content="http://yoursite.com/2018/10/21/TensorFlow-cifar10模型训练到实例应用/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="Dream to Camp.Nuo!">
+<meta property="og:description" content="数据集######概述该包括60000张RGB图像，每张图像尺寸为32*32，分为10个类，每类6000张10个类分别是：飞机， 汽车， 鸟， 猫， 鹿， 狗， 青蛙， 马， 船，卡车60000张图像中，50000张用于训练，10000张用于测试；测试数据分为5批，每批10000张，其中每类图像数量不一定相等Python版本数据在这里下载，MATLAB版本数据在这里下载，二进制版本数据在这里下载">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/T9fk1BA.png">
+<meta property="og:image" content="https://i.imgur.com/neKW4kj.png">
+<meta property="og:image" content="https://i.imgur.com/wwbO3XI.png">
+<meta property="og:image" content="https://i.imgur.com/SKE877I.png">
+<meta property="og:image" content="https://i.imgur.com/J5WlSca.png">
+<meta property="og:image" content="https://i.imgur.com/DJeCqOg.png">
+<meta property="og:image" content="https://i.imgur.com/awBzwt5.png">
+<meta property="og:image" content="https://i.imgur.com/f879SEN.png">
+<meta property="og:image" content="https://i.imgur.com/FxcyWOn.png">
+<meta property="og:updated_time" content="2018-10-21T08:05:44.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大公鸡の窝">
-<meta name="twitter:description" content="Dream to Camp.Nuo!">
+<meta name="twitter:title" content="TensorFlow+cifar10模型训练到实例应用">
+<meta name="twitter:description" content="数据集######概述该包括60000张RGB图像，每张图像尺寸为32*32，分为10个类，每类6000张10个类分别是：飞机， 汽车， 鸟， 猫， 鹿， 狗， 青蛙， 马， 船，卡车60000张图像中，50000张用于训练，10000张用于测试；测试数据分为5批，每批10000张，其中每类图像数量不一定相等Python版本数据在这里下载，MATLAB版本数据在这里下载，二进制版本数据在这里下载">
+<meta name="twitter:image" content="https://i.imgur.com/T9fk1BA.png">
 
 
 
@@ -149,13 +161,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/21/TensorFlow-cifar10模型训练到实例应用/"/>
 
 
 
 
 
-  <title>大公鸡の窝</title>
+  <title>TensorFlow+cifar10模型训练到实例应用 | 大公鸡の窝</title>
   
 
 
@@ -174,8 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/dagongji10">
 		<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
@@ -315,9 +326,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -347,9 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/21/TensorFlow-cifar10模型训练到实例应用/" itemprop="url">TensorFlow+cifar10模型训练到实例应用</a></h1>
+          <h1 class="post-title" itemprop="name headline">TensorFlow+cifar10模型训练到实例应用</h1>
         
 
         <div class="post-meta">
@@ -421,18 +430,53 @@
       
 
       
-        
-          
-          数据集######概述该包括60000张RGB图像，每张图像尺寸为32*32，分为10个类，每类6000张10个类分别是：飞机， 汽车， 鸟， 猫， 鹿， 狗， 青蛙， 马， 船，卡车60000张图像中，50000张用于训练，10000张用于测试；测试数据分为5批，每批10000张，其中每类图像数量
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/21/TensorFlow-cifar10模型训练到实例应用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a><a href="http://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">数据集</a></h2><p>######概述<br>该包括60000张RGB图像，每张图像尺寸为32*32，分为10个类，每类6000张<br>10个类分别是：飞机， 汽车， 鸟， 猫， 鹿， 狗， 青蛙， 马， 船，卡车<br>60000张图像中，50000张用于训练，10000张用于测试；测试数据分为5批，每批10000张，其中每类图像数量不一定相等<br><img src="https://i.imgur.com/T9fk1BA.png" alt=""><br>Python版本数据在这里<a href="http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz" target="_blank" rel="noopener">下载</a>，MATLAB版本数据在这里<a href="http://www.cs.toronto.edu/~kriz/cifar-10-matlab.tar.gz" target="_blank" rel="noopener">下载</a>，二进制版本数据在这里<a href="http://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz" target="_blank" rel="noopener">下载</a>    </p>
+<p>######数据布局<br>60000张图像分为6批：data_batch1，data_batch2，data_batch3，data_batch4，data_batch5以及test_batch  ；数据通过cPickle库处理，产生序列化对象，在实际编码中可以通过Python语言读取这些对象，得到一个字典结构的数据  ；如此一来，每个batch就都包含一个字典，字典里面包含两个元素：data，labels。  </p>
+<pre><code>data
+//一个10000*3072的numpy数组，数据类型为无符号整型
+//10000表示图像数量，每一行就是一张图像
+//3072表示的是一张独立图像的数据，每张图像尺寸为32*32，RGB三通道（32*32*3）
+//图像按照行顺序存储，就是说原始图像R通道像素矩阵的第一行32个值就存储在该数组某一行的前32位
+
+labels
+//一维数组，包含10000个元素，每个元素取值范围0~9，代表图像所属类别
+</code></pre><p>以上是Python/MATLAB版本的数据，还有一种是二进制，也就是TensorFlow所采用的<br>同样将数据分成6个batch：data_batch_1.bin，data_batch_2.bin，data_batch_3.bin，data_batch_4.bin，data_batch_5.bin以及test_batch.bin<br>还有一个batches.meta.txt文件，这是一个ASCII文件，同样是把0~9类数字类标同每一类类名对应起来</p>
+<pre><code>&lt;1 x label&gt;&lt;3072 x pixel&gt;
+...
+&lt;1 x label&gt;&lt;3072 x pixel&gt;
+
+//第一个字节是类别，在0~9之间
+//接下来是3072个字节，内容就是一幅图像的数据（同Python版本类似）
+//每个文件都是10000行这样的数据，没有分隔行，所以文件大小就是30730000字节
+//按行，height*weight*deepth的方式，前1024字节为R通道，然后是G通道，然后是B通道
+</code></pre><h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><p>下图是CIFAR10文件内容介绍：</p>
+<p><img src="https://i.imgur.com/neKW4kj.png" alt=""></p>
+<h6 id="cifar10-input-py"><a href="#cifar10-input-py" class="headerlink" title="cifar10_input.py"></a>cifar10_input.py</h6><p>该文件定义了模型如何数据文件（cifar10_data中的文件），在读取完成后还要对图像进行随机剪裁，翻转，标准化，等等。经过这一系列的预处理之后，数据才可以作为模型的标准输入。</p>
+<h6 id="cifar10-py"><a href="#cifar10-py" class="headerlink" title="cifar10.py"></a>cifar10.py</h6><p>接下来是模型定义文件，该文件内容包括：数据输入方法，模型的建立，训练方法等。下面这张图在文件的头部，相当于是文件内容的一个总述。</p>
+<p><img src="https://i.imgur.com/wwbO3XI.png" alt="">  </p>
+<p>它给出了整个模型的大致框架：</p>
+<pre><code>* 首先通过distorted_inputs()方法读取数据，并存入变量inputs（图像数据）和labels（分类标签）中
+* 然后通过inference()方法来完成预测，其实就是神经网络模型的搭建过程，包括：卷积，池化，局部响应归一化，全连接，softmax归一化等；预测结果存入变量predictions
+* 最后是训练，主要是计算损失loss、计算梯度、进行变量更新以及呈现最终结果等；
+</code></pre><p><img src="https://i.imgur.com/SKE877I.png" alt=""></p>
+<p>上表给出了该脚本定义的所有方法功能，其中有三个比较重要的函数方法：inference()，loss()，train()。根据inference()可以得到CNN的模型如下： </p>
+<p><img src="https://i.imgur.com/J5WlSca.png" alt=""></p>
+<h6 id="cifar10-train-py"><a href="#cifar10-train-py" class="headerlink" title="cifar10_train.py"></a>cifar10_train.py</h6><p>模型的训练方法。</p>
+<h6 id="cifar10-eval-py"><a href="#cifar10-eval-py" class="headerlink" title="cifar10_eval.py"></a>cifar10_eval.py</h6><p>测试数据时用到的脚本。里面定义了评估模型的方法，还有评估时的输出内容。后面如果需要实现自定义一张图片作为输入让模型来进行预测，主要是需要修改该文件中的代码。</p>
+<h2 id="代码运行"><a href="#代码运行" class="headerlink" title="代码运行"></a>代码运行</h2><p>首先需要用训练数据作为输入，让模型不断学习，优化模型参数。训练完成后，模型确定，可以用测试数据来测试模型的准确性。依次执行如下命令：</p>
+<pre><code>python cifar10_train.py
+python cifar10_eval.py
+</code></pre><h2 id="实例——单张图片作为输入"><a href="#实例——单张图片作为输入" class="headerlink" title="实例——单张图片作为输入"></a>实例——单张图片作为输入</h2><p>在成功运行脚本的基础上，我们想让模型对我们自定义的输入图片进行预测，然后输出该图片属于哪一类。这就需要修改脚本，主要的修改对象是cifar10_eval.py。  </p>
+<p>1、定义一个读取操作<br>源码中的读取是基于.bin文件的，这是事先处理过的，但实际上输入模型的数据并不是.bin文件，而是一个结构为【128，24，24，3】的张量，所以我们需要把待预测的单张图片处理成模型所需要的结构形式，同时要对图像进行标准化等处理（CIFAR就这么干了，模型的需要，不处理的话结果不正确）。这相当于是一个输入接口，运行时输入python cifar10_eval()，程序会提示输入文件名称，注意在输入文件名时要加入单引号（例如’cat.jpg’）。</p>
+<p><img src="https://i.imgur.com/DJeCqOg.png" alt=""></p>
+<p>2、修改cifar10eval.py中的evaluate()方法<br>这个方法就是模型数据的入口，源码中有两个输入：images，labels，但实际上我们只需要image，因为我们不希望去和label对比，而是直接输出检测结果<br>这里iamge值获取就用到上面的read_image()方法。</p>
+<p><img src="https://i.imgur.com/awBzwt5.png" alt=""></p>
+<p>3、修改cifar10eval.py中的eval_once()方法<br>这里是程序的输出位置，源码会输出测试后的准确率，这个准确率是通过模型预测值和labels正确值之间进行比对来确定的<br>模型预测完后，得到logits，这是一个结构为【128，10】的张量，每一行代表一张图片的结果，行向量中最大值所在位置就代表这张图属于哪一个类。</p>
+<p><img src="https://i.imgur.com/f879SEN.png" alt=""></p>
+<p>4、结果<br>并不是每张图片都能准确预测，有的会出错；<br>在我的实例中，cat，ship，horse，deer，frog，airplane，一般是可以较准确分类<br>bird预测为airplane，automobile预测为ship：可能是在图片的中央，二者平面拓扑结构比较相似<br>truck预测为airplane，dog预测为airplane</p>
+<p><img src="https://i.imgur.com/FxcyWOn.png" alt=""></p>
+<p>上图输出了模型预测的输入图片最有可能的类：cat，dog，bird</p>
+
       
     </div>
     
@@ -441,12 +485,28 @@
 
 	<div>
 		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
 	</div>
 	
 	<div>
       
+        
+      
 	</div>
 	
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="ChengQian wechat" style="width: 200px; max-width: 100%;"/>
+    <div>有问题可以通过微信一起讨论！</div>
+</div>
+
+      </div>
     
 	
     
@@ -455,331 +515,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/爬虫实例/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChengQian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大公鸡の窝">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/28/爬虫实例/" itemprop="url">爬虫实例--Python百科词条</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T22:10:29+08:00">
-                2018-02-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/TensorFlow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
           
-
+            <a href="/tags/CIFAR10/" rel="tag"><i class="fa fa-tag"></i> CIFAR10</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。   
-
-目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/Pytho
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/28/爬虫实例/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/28/爬虫实例/" rel="next" title="爬虫实例--Python百科词条">
+                <i class="fa fa-chevron-left"></i> 爬虫实例--Python百科词条
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-	<div>
-		
-	</div>
-	
-	<div>
-      
-	</div>
-	
-    
-	
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/GitHub+hexo+next/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChengQian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大公鸡の窝">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/25/GitHub+hexo+next/" itemprop="url">GitHub+hexo+next搭建博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T15:19:20+08:00">
-                2018-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          GitHub搭建属于自己的博客，一方面博客主题可以随心所欲（即便不是自己开发，也可选择套用一些比较优美的基础库），另一方面没有各种广告的入侵。同时在本地维护，完全由自己掌控。主要用到三个平台：  
-
-Hexo是本地框架，其实还应该加上Markdown，用来写文章；  
-GitHub主要是提供博客发布
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/25/GitHub+hexo+next/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-	<div>
-		
-	</div>
-	
-	<div>
-      
-	</div>
-	
-    
-	
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -789,10 +556,11 @@ GitHub主要是提供博客发布
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -800,6 +568,10 @@ GitHub主要是提供博客发布
 
 
           
+
+  
+
+
 
         </div>
         
@@ -822,8 +594,17 @@ GitHub主要是提供博客发布
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -924,6 +705,22 @@ GitHub主要是提供博客发布
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集"><span class="nav-number">1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码解析"><span class="nav-number">2.</span> <span class="nav-text">代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#cifar10-input-py"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">cifar10_input.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#cifar10-py"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">cifar10.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#cifar10-train-py"><span class="nav-number">2.0.0.0.3.</span> <span class="nav-text">cifar10_train.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#cifar10-eval-py"><span class="nav-number">2.0.0.0.4.</span> <span class="nav-text">cifar10_eval.py</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码运行"><span class="nav-number">3.</span> <span class="nav-text">代码运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例——单张图片作为输入"><span class="nav-number">4.</span> <span class="nav-text">实例——单张图片作为输入</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1073,6 +870,10 @@ GitHub主要是提供博客发布
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
