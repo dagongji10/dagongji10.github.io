@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://i.imgur.com/mJRziP3.png">
 <meta property="og:image" content="https://i.imgur.com/giykoGf.png">
 <meta property="og:image" content="https://i.imgur.com/NH0zYWp.png">
-<meta property="og:updated_time" content="2018-10-28T09:07:11.976Z">
+<meta property="og:updated_time" content="2018-10-28T09:19:10.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Caffe+GoogLeNet模型训练">
 <meta name="twitter:description" content="数据与配置文件 上图是Caffe框架下的GoogLeNet模型文件。Caffe框架跟TensorFlow稍有区别，它的网络结构不是在脚本中，而是通过一个后缀为.prototxt的配置文件来存储，包括模型用到的一些超参数。这里用到的模型其实已经训练完成了，模型数据存储在一个后缀名为.caffemodel的二进制文件中。上图的文件描述并不完全准确，在学习该模型时也没有去深究各文件的内容，而是着重关注C">
@@ -427,26 +427,19 @@
       
         <h2 id="数据与配置文件"><a href="#数据与配置文件" class="headerlink" title="数据与配置文件"></a>数据与配置文件</h2><hr>
 <p><img src="https://i.imgur.com/MjItJKj.png" alt=""><br>上图是Caffe框架下的GoogLeNet模型文件。<br>Caffe框架跟TensorFlow稍有区别，它的网络结构不是在脚本中，而是通过一个后缀为.prototxt的配置文件来存储，包括模型用到的一些超参数。这里用到的模型其实已经训练完成了，模型数据存储在一个后缀名为.caffemodel的二进制文件中。上图的文件描述并不完全准确，在学习该模型时也没有去深究各文件的内容，而是着重关注Caffe框架、GoogLeNet模型的结构。<strong>至于代码运行过程中的细节流程、函数调用方式等，仍需要后续补充。</strong></p>
-<h2 id="caffe框架"><a href="#caffe框架" class="headerlink" title="caffe框架"></a>caffe框架</h2><hr>
-<p>caffe框架主要有四个部分组成<br>&gt;</p>
-<ol>
-<li>Blob：可以理解为数据流，包括训练数据、参数数据等，它支持在CPU和GPU上存储，能够在两者之间做同步  </li>
-<li>layer：网络的层结构，例如卷积层、池化层、激活层等，每种层都实现了前向和后向传播，层之间的数据通过Blob的形式来传递  </li>
-<li>net：就是网络模型的整体表示，其实就是我们的神经网络模型  </li>
-<li>solver：对Net模型的求解方法，记录网络的训练过程，保存网络模型参数，中断并恢复网络训练过程以上最重要的应该是layer和solver两部分。  </li>
-</ol>
-<p>layer分为很多不同的类型，例如：输入层，视觉层，loss层，等等。每一层都有一种自己的定义方式，里面包含一些不同的参数、参数值，需要在设计网络结构时分别写入配置文件。<br>solver层是最重要的，它定义了如何来优化参数，相当于TensorFlow中的优化算法的选择，caffe定义了六种solver方法：SGD，AdaDelta，AdaGrad，Adam，Nesterov，RMSProp。<br>caffe中的三种参数：</p>
+<h2 id="Caffe框架"><a href="#Caffe框架" class="headerlink" title="Caffe框架"></a>Caffe框架</h2><hr>
+<p>caffe框架主要有四个部分组成：  </p>
+<blockquote>
+<p>（1）Blob：可以理解为数据流，包括训练数据、参数数据等，它支持在CPU和GPU上存储，能够在两者之间做同步<br>（2）layer：网络的层结构，例如卷积层、池化层、激活层等，每种层都实现了前向和后向传播，层之间的数据通过Blob的形式来传递<br>（3）net：就是网络模型的整体表示，其实就是我们的神经网络模型<br>（4）solver：对Net模型的求解方法，记录网络的训练过程，保存网络模型参数，中断并恢复网络训练过程以上最重要的应该是layer和solver两部分。  </p>
+</blockquote>
+<p>layer分为很多不同的类型，例如：输入层，视觉层，loss层，等等。每一层都有一种自己的定义方式，里面包含一些不同的参数、参数值，需要在设计网络结构时分别写入配置文件。<br>solver层是最重要的，它定义了如何来优化参数，相当于TensorFlow中的优化算法的选择，caffe定义了六种solver方法：SGD，AdaDelta，AdaGrad，Adam，Nesterov，RMSProp。 </p>
+<p>caffe中的三种参数：</p>
 <blockquote>
 <p>（1）可学习参数：就是需要反复训练不断优化的参数，例如：权重，偏置，等<br>（2）结构参数：用来构成网络模型的结构参数，例如：卷积层数目，卷积核大小，卷积核数量，等等<br>（3）训练超参数：控制训练收敛的一系列参数，可以手动设置，也可以让它自动更改，例如：迭代次数</p>
 </blockquote>
 <h2 id="GoogLeNet模型结构"><a href="#GoogLeNet模型结构" class="headerlink" title="GoogLeNet模型结构"></a>GoogLeNet模型结构</h2><hr>
 <p>阅读配置文件中的deploy.prototxt文件，可以得到GoogLeNet模型的结构，但是这样太麻烦，可以直接阅读文献，也可以直接参考网上的<a href="https://blog.csdn.net/qq_31531635/article/details/72232651" target="_blank" rel="noopener">博客</a>。<br>可以发现，GoogLeNet模型其实发展来源于LeNet-5模型，只是它把LeNet-5做的更深更宽了；这样做的好处是，分类、检测的结果会更好，因为<strong>网络越深学习越深入、网络越宽提取特征越完整细致</strong>。但是，更深更宽带来的影响是：计算复杂度加大，且容易引起梯度爆炸或者梯度消失。解决这个问题的办法是：<strong>引入inception节点，使用Hebbian原理、多尺度处理来进行优化</strong>。  </p>
-<p>GoogLeNet的相关工作：<br>&gt;</p>
-<ol>
-<li>对inception中的所有滤波器进行学习，并运用至22层网络》》多尺度处理</li>
-<li>使用 1x1 卷积来增加网络深度，并用它来降维、限制网络尺寸</li>
-<li>使用多边框预测，使用更好的网络结构  </li>
-</ol>
+<p>GoogLeNet的相关工作：<br>&gt;<br>（1）对inception中的所有滤波器进行学习，并运用至22层网络》》多尺度处理<br>（2）使用 1x1 卷积来增加网络深度，并用它来降维、限制网络尺寸<br>（3）使用多边框预测，使用更好的网络结构  </p>
 <p>inception结构：</p>
 <blockquote>
 <p>用密集成分来近似局部稀疏结构，这个结构让网络变得更宽，并且用到多尺度处理；在每一个尺度之前运用 1x1 卷积来进行降维  </p>
@@ -705,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据与配置文件"><span class="nav-number">1.</span> <span class="nav-text">数据与配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#caffe框架"><span class="nav-number">2.</span> <span class="nav-text">caffe框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GoogLeNet模型结构"><span class="nav-number">3.</span> <span class="nav-text">GoogLeNet模型结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码解析"><span class="nav-number">4.</span> <span class="nav-text">代码解析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据与配置文件"><span class="nav-number">1.</span> <span class="nav-text">数据与配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Caffe框架"><span class="nav-number">2.</span> <span class="nav-text">Caffe框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GoogLeNet模型结构"><span class="nav-number">3.</span> <span class="nav-text">GoogLeNet模型结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码解析"><span class="nav-number">4.</span> <span class="nav-text">代码解析</span></a></li></ol></div>
             
 
           </div>
