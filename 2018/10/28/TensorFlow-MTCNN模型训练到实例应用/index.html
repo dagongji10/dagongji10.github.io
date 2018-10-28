@@ -110,19 +110,19 @@
 
 
 
-<meta name="description" content="模型理解 MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以">
+<meta name="description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以及">
 <meta name="keywords" content="TensorFlow,MTCNN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow+MTCNN模型训练到实例应用">
 <meta property="og:url" content="http://yoursite.com/2018/10/28/TensorFlow-MTCNN模型训练到实例应用/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="模型理解 MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以">
+<meta property="og:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以及">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/VkmQm4L.png">
-<meta property="og:updated_time" content="2018-10-28T09:13:43.983Z">
+<meta property="og:updated_time" content="2018-10-28T09:34:56.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow+MTCNN模型训练到实例应用">
-<meta name="twitter:description" content="模型理解 MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以">
+<meta name="twitter:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以及">
 <meta name="twitter:image" content="https://i.imgur.com/VkmQm4L.png">
 
 
@@ -422,8 +422,7 @@
       
 
       
-        <h2 id="模型理解"><a href="#模型理解" class="headerlink" title="模型理解"></a>模型理解</h2><hr>
-<p>MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：</p>
+        <h2 id="模型理解"><a href="#模型理解" class="headerlink" title="模型理解"></a>模型理解</h2><p>MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：</p>
 <blockquote>
 <p>Proposal-Net：生成候选框<br>Refine-Net：优化候选框，去掉重叠率较小的<br>Output-Net：继续优化，并定位特征点  </p>
 </blockquote>
@@ -441,8 +440,8 @@
 <p>（1）主要是进行人脸特征点的定位学习，这里三类输出的损失占比和前两个稍有不同，特征点的损失和人脸分类相同，而弱化边界框<br>（2）所以在这里，应该是默认人脸分类、边界框定位已经准确了，最后在边界框内部修正特征点的位置<br>（3）实际学习中，特征点的位置用的并不是绝对坐标，而是在边界框中的相对位置，坐标范围是[0，1]  </p>
 </blockquote>
 <p>网络的重点在于：使用了<strong>边界框回归，非极大值抑制NMS</strong>；边界框回归是用来不断调整边界框的位置，NMS是用来摒弃那些不合格的边界框（刚开始产生的框是非常多的）。<br>网络的模型并不难懂，关键在于在python+TensorFlow环境下，如何处理和操作数据（这里的数据量是非常大的，比cifar100多）</p>
-<h2 id="数据的处理与模型训练"><a href="#数据的处理与模型训练" class="headerlink" title="数据的处理与模型训练"></a>数据的处理与模型训练</h2><hr>
-<p>（缺一张文件夹列表图！）<br>从runAll.sh文件内容可以看到，三层网络是级联关系，分阶段学习；三阶段中有一部分操作是相同的，调用的同一脚本（仅限于我所看到的框架源码）  </p>
+<hr>
+<h2 id="数据的处理与模型训练"><a href="#数据的处理与模型训练" class="headerlink" title="数据的处理与模型训练"></a>数据的处理与模型训练</h2><p>（缺一张文件夹列表图！）<br>从runAll.sh文件内容可以看到，三层网络是级联关系，分阶段学习；三阶段中有一部分操作是相同的，调用的同一脚本（仅限于我所看到的框架源码）</p>
 <h3 id="gen-hard-bbox-pnet-py"><a href="#gen-hard-bbox-pnet-py" class="headerlink" title="gen_hard_bbox_pnet.py"></a>gen_hard_bbox_pnet.py</h3><p>主要是为pnet层产生所需的数据，说白了就是边界框，分成三类：negative，positive，part-face，用这些边界框去截取原图像，得到框选出的区域（可能是人脸，可能不是）                                                  里面会涉及到框的随机位置产生、随机尺寸，还有可能相对于真实人脸框的偏移、缩放等；要的就是增加训练数据的复杂性，使得模型鲁棒性更强。<br>数据部分是随机生成的，它相对于真实人脸的位置不确定，大部分是错误的人脸区域；还有一部分是从真实人脸的附近产生，接近正解（其实这一部分要不要都无所谓）。<br>从这里可以看到，训练框的产生依赖于真实框，真实框是事先定义好的，需要从文件中读取进来；然后通过对训练框的学习来优化模型参数</p>
 <h3 id="gen-landmark-aug-py"><a href="#gen-landmark-aug-py" class="headerlink" title="gen_landmark_aug.py"></a>gen_landmark_aug.py</h3><p>产生landmark数据，这个数据也是从真实数据中做一定的偏移得到的，只不过不是直接针对landmark来偏移，而是建立landmark在图片中的相对位置，旋转图片，然后对应的相对位置也发生改变</p>
 <h3 id="gen-tfrecords-py"><a href="#gen-tfrecords-py" class="headerlink" title="gen_tfrecords.py"></a>gen_tfrecords.py</h3><p>本地数据创建完成，包括：image，box，landmark，这里的一张图片可能包含多个box和landmark，但是box和landmark是成对出现的<br>该脚本读取本地数据，然后存入tfrecord中，以后每次训练需要相关的数据就从tfrecord中读取，这样做的好处是速度快、占用内存小<br>tfrecord是TensorFlow中一种管理数据的的方式，首先是要生成一个tfrecord文件，然后使用的时候读取这个文件，从里面恢复数据；tfrecord文件的格式是固定的</p>
@@ -453,14 +452,15 @@
 <h3 id="landmark-utils-py"><a href="#landmark-utils-py" class="headerlink" title="landmark_utils.py"></a>landmark_utils.py</h3><p>定义了画边界框、特征点的方法</p>
 <h3 id="mtcnn-model-py"><a href="#mtcnn-model-py" class="headerlink" title="mtcnn_model.py"></a>mtcnn_model.py</h3><p>定义了三个模型的结构，如何形成卷积神经网络的，卷积个数、大小、池化等等  </p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>训练的时候，可以修改runAll.sh文件，分别只用到pnet、rnet、onet三部分，分别执行三次，就可以完成模型的训练。模型训练完成之后，结果会保存在tmp文件夹中，model中就是三个阶段的模型</p>
-<h2 id="实例测试"><a href="#实例测试" class="headerlink" title="##实例测试"></a>##实例测试</h2><p>测试代码在testing文件夹中，运行”python test_images.py –stage=pnet”可以测试pnet，rnet/onet类似</p>
+<hr>
+<h2 id="实例测试"><a href="#实例测试" class="headerlink" title="实例测试"></a>实例测试</h2><p>测试代码在testing文件夹中，运行”python test_images.py –stage=pnet”可以测试pnet，rnet/onet类似</p>
 <ol>
 <li>test_images.py：获取模型的路径、待测试的图片路径，利用mtcnndector来计算人脸位置，并输出；调用了MtcnnDetector.py脚本</li>
 <li>MtcnnDetector.py：detect_face是入口，会调用pnet、rnet、onet的检测方法，然后不同的阶段分别进行预测，预测时用到detector方法；调用detector.py脚本</li>
 <li>detector.py：这是真正做预测的地方，首先根据test_images.py保存的模型路径来读取模型数据，然后将数据传入模型，进行预测，返回数据</li>
 </ol>
-<p>输入文件：存放在images文件夹下，几张图片即可<br>输出文件：存放在resoults_xxx文件夹下，是检测到的人脸图像<br><img src="https://i.imgur.com/VkmQm4L.png" alt=""><br>这个地方是三个阶段的评判阈值，修改这里的参数，结果会有差别；<br>第一个参数用在pnet层，大于这个值被认为合格，这个值太大可能导致后面rnet、onet检测不到结果；后面同理。  </p>
-<p>问题：（1）onet相对于rnet、rnet相对于pnet，框的数量在减少，这个减少的操作在哪里完成？应该是有一个判断舍弃的？<br>答：通过py_nms函数完成的，这个函数将框与框之间的重叠区域界定到一个范围；实际上如果大部分都是重叠的，说明两个框表示同一张人脸，如果两个框重叠区域较小，那肯定要去掉一个，保存最优的；如果没有重叠区域，要么是错误，要么是属于两个人脸。</p>
+<p>输入文件：存放在images文件夹下，几张图片即可<br>输出文件：存放在resoults_xxx文件夹下，是检测到的人脸图像  </p>
+<p>下图是三个阶段的评判阈值，修改这里的参数，结果会有差别；<br>第一个参数用在pnet层，大于这个值被认为合格，这个值太大可能导致后面rnet、onet检测不到结果；后面同理。<br><img src="https://i.imgur.com/VkmQm4L.png" alt=""><br>问题：（1）onet相对于rnet、rnet相对于pnet，框的数量在减少，这个减少的操作在哪里完成？应该是有一个判断舍弃的？<br>答：通过py_nms函数完成的，这个函数将框与框之间的重叠区域界定到一个范围；实际上如果大部分都是重叠的，说明两个框表示同一张人脸，如果两个框重叠区域较小，那肯定要去掉一个，保存最优的；如果没有重叠区域，要么是错误，要么是属于两个人脸。</p>
 
       
     </div>
@@ -700,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型理解"><span class="nav-number">1.</span> <span class="nav-text">模型理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的处理与模型训练"><span class="nav-number">2.</span> <span class="nav-text">数据的处理与模型训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-hard-bbox-pnet-py"><span class="nav-number">2.1.</span> <span class="nav-text">gen_hard_bbox_pnet.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-landmark-aug-py"><span class="nav-number">2.2.</span> <span class="nav-text">gen_landmark_aug.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-tfrecords-py"><span class="nav-number">2.3.</span> <span class="nav-text">gen_tfrecords.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train-py"><span class="nav-number">2.4.</span> <span class="nav-text">train.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-hard-bbox-rnet-onet-py"><span class="nav-number">2.5.</span> <span class="nav-text">gen_hard_bbox_rnet_onet.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commom-utils-py"><span class="nav-number">2.6.</span> <span class="nav-text">commom_utils.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tfrecord-utils-py，tfrecord-reader-py"><span class="nav-number">2.7.</span> <span class="nav-text">tfrecord_utils.py，tfrecord_reader.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#landmark-utils-py"><span class="nav-number">2.8.</span> <span class="nav-text">landmark_utils.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mtcnn-model-py"><span class="nav-number">2.9.</span> <span class="nav-text">mtcnn_model.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.10.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例测试"><span class="nav-number">3.</span> <span class="nav-text">##实例测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型理解"><span class="nav-number">1.</span> <span class="nav-text">模型理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的处理与模型训练"><span class="nav-number">2.</span> <span class="nav-text">数据的处理与模型训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-hard-bbox-pnet-py"><span class="nav-number">2.1.</span> <span class="nav-text">gen_hard_bbox_pnet.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-landmark-aug-py"><span class="nav-number">2.2.</span> <span class="nav-text">gen_landmark_aug.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-tfrecords-py"><span class="nav-number">2.3.</span> <span class="nav-text">gen_tfrecords.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train-py"><span class="nav-number">2.4.</span> <span class="nav-text">train.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gen-hard-bbox-rnet-onet-py"><span class="nav-number">2.5.</span> <span class="nav-text">gen_hard_bbox_rnet_onet.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commom-utils-py"><span class="nav-number">2.6.</span> <span class="nav-text">commom_utils.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tfrecord-utils-py，tfrecord-reader-py"><span class="nav-number">2.7.</span> <span class="nav-text">tfrecord_utils.py，tfrecord_reader.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#landmark-utils-py"><span class="nav-number">2.8.</span> <span class="nav-text">landmark_utils.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mtcnn-model-py"><span class="nav-number">2.9.</span> <span class="nav-text">mtcnn_model.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.10.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例测试"><span class="nav-number">3.</span> <span class="nav-text">实例测试</span></a></li></ol></div>
             
 
           </div>

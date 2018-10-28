@@ -423,12 +423,11 @@
       
         
           
-          模型理解
-MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：
+          模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：
 
 Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点  
 
-实际上，每一步都
+实际上，每一步都会
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -584,8 +583,7 @@ Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较�
       
         
           
-          数据与配置文件
-上图是Caffe框架下的GoogLeNet模型文件。Caffe框架跟TensorFlow稍有区别，它的网络结构不是在脚本中，而是通过一个后缀为.prototxt的配置文件来存储，包括模型用到的一些超参数。这里用到的模型其实已经训练完成了，模型数据存储在一个后缀名为.caffemode
+          数据与配置文件上图是Caffe框架下的GoogLeNet模型文件。Caffe框架跟TensorFlow稍有区别，它的网络结构不是在脚本中，而是通过一个后缀为.prototxt的配置文件来存储，包括模型用到的一些超参数。这里用到的模型其实已经训练完成了，模型数据存储在一个后缀名为.caffemodel
           ...
           <!--noindex-->
           <div class="post-button text-center">
