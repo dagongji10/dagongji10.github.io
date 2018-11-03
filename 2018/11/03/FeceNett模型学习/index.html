@@ -97,7 +97,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="DeepLearning," />
 
 
 
@@ -110,17 +110,18 @@
 
 
 
-<meta name="description" content="Dream to Camp.Nuo!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="问题引入原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深">
+<meta name="keywords" content="DeepLearning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FeceNet模型学习">
+<meta property="og:url" content="http://yoursite.com/2018/11/03/FeceNett模型学习/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="Dream to Camp.Nuo!">
+<meta property="og:description" content="问题引入原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-25T10:00:23.001Z">
+<meta property="og:updated_time" content="2018-11-03T02:16:09.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="Dream to Camp.Nuo!">
+<meta name="twitter:title" content="FeceNet模型学习">
+<meta name="twitter:description" content="问题引入原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深">
 
 
 
@@ -150,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/03/FeceNett模型学习/"/>
 
 
 
 
 
-  <title>标签 | 大公鸡の窝</title>
+  <title>FeceNet模型学习 | 大公鸡の窝</title>
   
 
 
@@ -318,40 +319,203 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/FeceNett模型学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChengQian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大公鸡の窝">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">标签</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 11 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/CIFAR10/" style="font-size: 12px; color: #ccc">CIFAR10</a> <a href="/tags/Caffe/" style="font-size: 12px; color: #ccc">Caffe</a> <a href="/tags/DeepLearning/" style="font-size: 12px; color: #ccc">DeepLearning</a> <a href="/tags/GoogLeNet/" style="font-size: 12px; color: #ccc">GoogLeNet</a> <a href="/tags/MTCNN/" style="font-size: 12px; color: #ccc">MTCNN</a> <a href="/tags/Python/" style="font-size: 12px; color: #ccc">Python</a> <a href="/tags/TensorFlow/" style="font-size: 30px; color: #111">TensorFlow</a> <a href="/tags/blog/" style="font-size: 12px; color: #ccc">blog</a> <a href="/tags/github/" style="font-size: 12px; color: #ccc">github</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/爬虫/" style="font-size: 12px; color: #ccc">爬虫</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">FeceNet模型学习</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T10:09:33+08:00">
+                2018-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/FaceNet/" itemprop="url" rel="index">
+                    <span itemprop="name">FaceNet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h2><p>原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）<br>做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深层次的特征。<br>所以，如果这里仍然使用CIFAR10那样的模型，是否还能够较好的识别一张图里面的人是谁呢？</p>
+<p>论文模型的理论依据：对于人脸特征距离而言，相同个体总是小于不同个体<br>解决方法：提取两张图片之间的特征，计算特征之间的欧氏距离，小于距离阈值即为同一个体</p>
+<hr>
+<h2 id="论文关键点"><a href="#论文关键点" class="headerlink" title="论文关键点"></a>论文关键点</h2>
       
     </div>
     
     
     
+
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+	
+	<div>
+      
+        
+      
+	</div>
+	
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="ChengQian wechat" style="width: 200px; max-width: 100%;"/>
+    <div>有问题可以通过微信一起讨论！</div>
+</div>
+
+      </div>
+    
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DeepLearning/" rel="tag"><i class="fa fa-tag"></i> DeepLearning</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/28/TensorFlow-MTCNN模型训练到实例应用/" rel="next" title="MTCNN模型学习">
+                <i class="fa fa-chevron-left"></i> MTCNN模型学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -386,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -488,6 +661,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引入"><span class="nav-number">1.</span> <span class="nav-text">问题引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文关键点"><span class="nav-number">2.</span> <span class="nav-text">论文关键点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
