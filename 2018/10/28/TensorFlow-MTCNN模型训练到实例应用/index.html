@@ -110,19 +110,19 @@
 
 
 
-<meta name="description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以及">
+<meta name="description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位，严格来说这里并不做人脸识别。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，">
 <meta name="keywords" content="TensorFlow,MTCNN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MTCNN模型学习">
 <meta property="og:url" content="http://yoursite.com/2018/10/28/TensorFlow-MTCNN模型训练到实例应用/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以及">
+<meta property="og:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位，严格来说这里并不做人脸识别。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/VkmQm4L.png">
-<meta property="og:updated_time" content="2018-11-03T02:10:58.241Z">
+<meta property="og:updated_time" content="2018-11-03T02:36:39.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MTCNN模型学习">
-<meta name="twitter:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，前两个阶段侧重于判断人脸以及">
+<meta name="twitter:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位，严格来说这里并不做人脸识别。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，">
 <meta name="twitter:image" content="https://i.imgur.com/VkmQm4L.png">
 
 
@@ -422,7 +422,7 @@
       
 
       
-        <h2 id="模型理解"><a href="#模型理解" class="headerlink" title="模型理解"></a>模型理解</h2><p>MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位。模型采用级联结构，由三个不同的层组成：</p>
+        <h2 id="模型理解"><a href="#模型理解" class="headerlink" title="模型理解"></a>模型理解</h2><p>MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位，严格来说这里并不做人脸识别。模型采用级联结构，由三个不同的层组成：</p>
 <blockquote>
 <p>Proposal-Net：生成候选框<br>Refine-Net：优化候选框，去掉重叠率较小的<br>Output-Net：继续优化，并定位特征点  </p>
 </blockquote>
@@ -623,7 +623,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
