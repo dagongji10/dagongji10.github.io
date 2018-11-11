@@ -118,12 +118,13 @@
 <meta property="og:site_name" content="大公鸡の窝">
 <meta property="og:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位，严格来说这里并不做人脸识别。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/bYeQPbn.png">
 <meta property="og:image" content="https://i.imgur.com/VkmQm4L.png">
-<meta property="og:updated_time" content="2018-11-03T02:36:39.221Z">
+<meta property="og:updated_time" content="2018-11-11T02:04:41.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MTCNN模型学习">
 <meta name="twitter:description" content="模型理解MTCNN（Tutil-Task CNN）：这里的多任务指的是人脸检测、人脸对齐、特征点定位，严格来说这里并不做人脸识别。模型采用级联结构，由三个不同的层组成：  Proposal-Net：生成候选框Refine-Net：优化候选框，去掉重叠率较小的Output-Net：继续优化，并定位特征点    实际上，每一步都会有三个输出：人脸判断，边框预测，特征点定位；只是在不同的阶段侧重点不同，">
-<meta name="twitter:image" content="https://i.imgur.com/VkmQm4L.png">
+<meta name="twitter:image" content="https://i.imgur.com/bYeQPbn.png">
 
 
 
@@ -441,7 +442,7 @@
 </blockquote>
 <p>网络的重点在于：使用了<strong>边界框回归，非极大值抑制NMS</strong>；边界框回归是用来不断调整边界框的位置，NMS是用来摒弃那些不合格的边界框（刚开始产生的框是非常多的）。<br>网络的模型并不难懂，关键在于在python+TensorFlow环境下，如何处理和操作数据（这里的数据量是非常大的，比cifar100多）</p>
 <hr>
-<h2 id="数据的处理与模型训练"><a href="#数据的处理与模型训练" class="headerlink" title="数据的处理与模型训练"></a>数据的处理与模型训练</h2><p>（缺一张文件夹列表图！）<br>从runAll.sh文件内容可以看到，三层网络是级联关系，分阶段学习；三阶段中有一部分操作是相同的，调用的同一脚本（仅限于我所看到的框架源码）</p>
+<h2 id="数据的处理与模型训练"><a href="#数据的处理与模型训练" class="headerlink" title="数据的处理与模型训练"></a>数据的处理与模型训练</h2><p><img src="https://i.imgur.com/bYeQPbn.png" alt=""><br>从runAll.sh文件内容可以看到，三层网络是级联关系，分阶段学习；三阶段中有一部分操作是相同的，调用的同一脚本（仅限于我所看到的框架源码）</p>
 <h3 id="gen-hard-bbox-pnet-py"><a href="#gen-hard-bbox-pnet-py" class="headerlink" title="gen_hard_bbox_pnet.py"></a>gen_hard_bbox_pnet.py</h3><p>主要是为pnet层产生所需的数据，说白了就是边界框，分成三类：negative，positive，part-face，用这些边界框去截取原图像，得到框选出的区域（可能是人脸，可能不是）                                                  里面会涉及到框的随机位置产生、随机尺寸，还有可能相对于真实人脸框的偏移、缩放等；要的就是增加训练数据的复杂性，使得模型鲁棒性更强。<br>数据部分是随机生成的，它相对于真实人脸的位置不确定，大部分是错误的人脸区域；还有一部分是从真实人脸的附近产生，接近正解（其实这一部分要不要都无所谓）。<br>从这里可以看到，训练框的产生依赖于真实框，真实框是事先定义好的，需要从文件中读取进来；然后通过对训练框的学习来优化模型参数</p>
 <h3 id="gen-landmark-aug-py"><a href="#gen-landmark-aug-py" class="headerlink" title="gen_landmark_aug.py"></a>gen_landmark_aug.py</h3><p>产生landmark数据，这个数据也是从真实数据中做一定的偏移得到的，只不过不是直接针对landmark来偏移，而是建立landmark在图片中的相对位置，旋转图片，然后对应的相对位置也发生改变</p>
 <h3 id="gen-tfrecords-py"><a href="#gen-tfrecords-py" class="headerlink" title="gen_tfrecords.py"></a>gen_tfrecords.py</h3><p>本地数据创建完成，包括：image，box，landmark，这里的一张图片可能包含多个box和landmark，但是box和landmark是成对出现的<br>该脚本读取本地数据，然后存入tfrecord中，以后每次训练需要相关的数据就从tfrecord中读取，这样做的好处是速度快、占用内存小<br>tfrecord是TensorFlow中一种管理数据的的方式，首先是要生成一个tfrecord文件，然后使用的时候读取这个文件，从里面恢复数据；tfrecord文件的格式是固定的</p>
