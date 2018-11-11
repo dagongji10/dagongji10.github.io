@@ -465,7 +465,7 @@
 <h3 id="mtcnn-model-py"><a href="#mtcnn-model-py" class="headerlink" title="mtcnn_model.py"></a>mtcnn_model.py</h3><p>定义了三个模型的结构，如何形成卷积神经网络的，卷积个数、大小、池化等等  </p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>训练的时候，可以修改runAll.sh文件，分别只用到pnet、rnet、onet三部分，分别执行三次，就可以完成模型的训练。模型训练完成之后，结果会保存在tmp文件夹中，model中就是三个阶段的模型</p>
 <hr>
-<h2 id="实例测试"><a href="#实例测试" class="headerlink" title="实例测试"></a>实例测试</h2><p>测试代码在testing文件夹中，运行”python test_images.py –stage=pnet”可以测试pnet，rnet/onet类似</p>
+<h2 id="实例测试"><a href="#实例测试" class="headerlink" title="实例测试"></a>实例测试</h2><p>测试代码在testing文件夹中，运行”python test_images.py —stage=pnet”可以测试pnet，rnet/onet类似</p>
 <ol>
 <li>test_images.py：获取模型的路径、待测试的图片路径，利用mtcnndector来计算人脸位置，并输出；调用了MtcnnDetector.py脚本</li>
 <li>MtcnnDetector.py：detect_face是入口，会调用pnet、rnet、onet的检测方法，然后不同的阶段分别进行预测，预测时用到detector方法；调用detector.py脚本</li>
@@ -1249,26 +1249,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

@@ -110,18 +110,18 @@
 
 
 
-<meta name="description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
+<meta name="description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式:  --词条页面URL：/item/...  数据格式：  --标题：&amp;lt;dd c">
 <meta name="keywords" content="Python,爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫实例--Python百科词条">
 <meta property="og:url" content="http://yoursite.com/2018/02/28/爬虫实例/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
+<meta property="og:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式:  --词条页面URL：/item/...  数据格式：  --标题：&amp;lt;dd c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-01T01:08:19.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫实例--Python百科词条">
-<meta name="twitter:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式: --词条页面URL：/item/...  数据格式： --标题：&amp;lt;dd cla">
+<meta name="twitter:description" content="Python最基础的应用就是爬虫。本文是看了慕课网一个视频教程后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。     目标：抓取百度百科Python词条相关词条网页——标题和简介入口：https://baike.baidu.com/item/PythonURL格式:  --词条页面URL：/item/...  数据格式：  --标题：&amp;lt;dd c">
 
 
 
@@ -423,10 +423,10 @@
         <p>Python最基础的应用就是爬虫。<br>本文是看了<a href="https://www.imooc.com/learn/563" target="_blank" rel="noopener">慕课网一个视频教程</a>后根据该教程写的一个爬虫实例。这个教程讲的还是挺好的，建议刚开始学Python的童鞋可以看看。   </p>
 <hr>
 <p>目标：抓取百度百科Python词条相关词条网页——标题和简介<br>入口：<a href="https://baike.baidu.com/item/Python" target="_blank" rel="noopener">https://baike.baidu.com/item/Python</a><br>URL格式:</p>
-<pre><code>--词条页面URL：/item/... 
+<pre><code> --词条页面URL：/item/... 
 </code></pre><p>数据格式：</p>
-<pre><code>--标题：&lt;dd class=&quot;lemmaWgt-lemmaTitle-title&quot;&gt;&lt;h1&gt;Python&lt;/h1&gt;
---简介：&lt;div class=&quot;lemma-summary&quot; label-module=&quot;lemmaSummary&quot;&gt;
+<pre><code> --标题：&lt;dd class=&quot;lemmaWgt-lemmaTitle-title&quot;&gt;&lt;h1&gt;Python&lt;/h1&gt;
+ --简介：&lt;div class=&quot;lemma-summary&quot; label-module=&quot;lemmaSummary&quot;&gt;
 </code></pre><p>页面编码：utf-8<br>开发环境：</p>
 <pre><code>1、安装JRE环境：下载jdk-8u161-windows-x64，安装即可
 2、安装Eclipse软件：从蒲公英上下载eclipse-java-oxygen-R-win32-x86_64，直接打开exe就是
@@ -451,7 +451,7 @@ class SpiderMain(object):
         while self.urls.has_new_url():                               //开始循环
             try:
                 new_url = self.urls.get_new_url()                    //取第一个url
-                print &apos;craw %d : %s&apos; % (count,new_url)               //输出url
+                print &#39;craw %d : %s&#39; % (count,new_url)               //输出url
                 html_cont = self.downloader.download(new_url)        //下载网页内容
                 new_urls,new_data = self.parser.parse(new_url,html_cont)     //获取新的url和价值数据
                 self.urls.add_new_urls(new_urls)                     //添加新的url到url管理器
@@ -462,10 +462,10 @@ class SpiderMain(object):
 
                 count = count + 1
             except:
-                print &apos;craw failed&apos;
+                print &#39;craw failed&#39;
 
         self.outputer.output_html()                                //输出数据到网页
-        print &apos;finished!&apos;
+        print &#39;finished!&#39;
 
 
 if __name__==&quot;__main__&quot;:
@@ -528,7 +528,7 @@ class HtmlParser(object):
         if page_url is None or html_cont is None:
             return
 
-        soup = BeautifulSoup(html_cont,&apos;html.parser&apos;,from_encoding=&apos;utf-8&apos;)     //解释器对象
+        soup = BeautifulSoup(html_cont,&#39;html.parser&#39;,from_encoding=&#39;utf-8&#39;)     //解释器对象
 
         new_urls = self._get_new_urls(page_url,soup)          //获取新网址，实现方法在下面
         new_data = self._get_new_data(page_url,soup)          //获取数据，实现方法在下面
@@ -539,9 +539,9 @@ class HtmlParser(object):
     def _get_new_urls(self, page_url, soup):                           //新网址获取方法，这个要根据具体网址信息来设计，不是一成不变的
         new_urls = set()          //网址容器     
 
-        links = soup.find_all(&apos;a&apos;,href=re.compile(r&quot;/item/&quot;))          //获取标签为a、包含“/item/”的链接信息（这个信息事实上是残缺的）
+        links = soup.find_all(&#39;a&#39;,href=re.compile(r&quot;/item/&quot;))          //获取标签为a、包含“/item/”的链接信息（这个信息事实上是残缺的）
         for link in links:                                             //这里用到正则表达式
-            new_url = link[&apos;href&apos;]                                     
+            new_url = link[&#39;href&#39;]                                     
             new_full_url = urlparse.urljoin(page_url,new_url)          //我们这里将残缺的网址信息和网址参数合并作为新的URL
             new_urls.add(new_full_url)
         return new_urls
@@ -550,15 +550,15 @@ class HtmlParser(object):
     def _get_new_data(self, page_url, soup):          //价值信息获取方法
         res_data = {}     //容器，字典结构
 
-        res_data[&apos;url&apos;] = page_url               //将网址存入数据容器
+        res_data[&#39;url&#39;] = page_url               //将网址存入数据容器
 
         # &lt;dd class=&quot;lemmaWgt-lemmaTitle-title&quot;&gt; &lt;h1&gt;Python&lt;/h1&gt;          //这是我当时查看的网页源代码的格式
-        title_node = soup.find(&apos;dd&apos;,class_=&quot;lemmaWgt-lemmaTitle-title&quot;).find(&quot;h1&quot;)     //获取标题节点
-        res_data[&apos;title&apos;] = title_node.get_text()                                      //存储标题
+        title_node = soup.find(&#39;dd&#39;,class_=&quot;lemmaWgt-lemmaTitle-title&quot;).find(&quot;h1&quot;)     //获取标题节点
+        res_data[&#39;title&#39;] = title_node.get_text()                                      //存储标题
 
         # &lt;div class=&quot;lemma-summary&quot; label-module=&quot;lemmaSummary&quot;&gt;
-        summary_node = soup.find(&apos;div&apos;,class_=&quot;lemma-summary&quot;)          //获取简介内容节点
-        res_data[&apos;summary&apos;] = summary_node.get_text()                   //存储简介信息
+        summary_node = soup.find(&#39;div&#39;,class_=&quot;lemma-summary&quot;)          //获取简介内容节点
+        res_data[&#39;summary&#39;] = summary_node.get_text()                   //存储简介信息
 
         return res_data
 </code></pre><p><strong>5、输出：html_outputer</strong></p>
@@ -576,7 +576,7 @@ class HtmlOutputer(object):
 
 
     def output_html(self):
-        fout = open(&apos;output.html&apos;,&apos;w&apos;)     //新建一个.html文件
+        fout = open(&#39;output.html&#39;,&#39;w&#39;)     //新建一个.html文件
 
         fout.write(&quot;&lt;html&gt;&quot;)               //将爬到的内容输出为html
         fout.write(&quot;&lt;body&gt;&quot;)               //所以这里输出为html表格形式
@@ -584,9 +584,9 @@ class HtmlOutputer(object):
 
         for data in self.datas:
             fout.write(&quot;&lt;tr&gt;&quot;)
-            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&apos;url&apos;])
-            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&apos;title&apos;].encode(&apos;utf-8&apos;))
-            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&apos;summary&apos;].encode(&apos;utf-8&apos;))
+            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&#39;url&#39;])
+            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&#39;title&#39;].encode(&#39;utf-8&#39;))
+            fout.write(&quot;&lt;td&gt;%s&lt;/td&gt;&quot; % data[&#39;summary&#39;].encode(&#39;utf-8&#39;))
             fout.write(&quot;&lt;/tr&gt;&quot;)
 
         fout.write(&quot;&lt;/table&gt;&quot;)
@@ -1346,26 +1346,6 @@ class HtmlOutputer(object):
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

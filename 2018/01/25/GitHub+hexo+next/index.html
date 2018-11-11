@@ -445,47 +445,47 @@
 * 在网页端地址栏输入：http://localhost:4000/，就可以看到新建的hello world博客。
 </code></pre><p>3、将Hexo与github page 联系起来  </p>
 <p>（1）配置git个人信息`</p>
-<pre><code>* 在桌面鼠标右键，点击Git Bash Here
-* 输入：git config --global user.name &quot;GitHub的注册用户名&quot;
-* 输入：git config --global user.email &quot;GitHub注册邮箱&quot;
-* 输入：ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;，设置文件放的位置，保存生成的密匙（id_rsa，id_rsa.pub）
-* 然后进入GitHub账户，点击右上方头像旁边的向下三角箭头，选择Settings，进去后选择SSH and GPG keys，新建SSH key；自己给key起一个名字，然后将上一步生成的id_rsa.pub中的内容拷贝到key对话框，保存。
-* 测试》仍然在刚才的GitBash中输入：ssh -T git@github.com，如果有提示输入（yes/no?）就输入y，然后回车；
-* 出现“Hi （GitHub用户名）....”等字样就说明配置成功了。  
+<pre><code>    * 在桌面鼠标右键，点击Git Bash Here
+    * 输入：git config --global user.name &quot;GitHub的注册用户名&quot;
+    * 输入：git config --global user.email &quot;GitHub注册邮箱&quot;
+    * 输入：ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;，设置文件放的位置，保存生成的密匙（id_rsa，id_rsa.pub）
+    * 然后进入GitHub账户，点击右上方头像旁边的向下三角箭头，选择Settings，进去后选择SSH and GPG keys，新建SSH key；自己给key起一个名字，然后将上一步生成的id_rsa.pub中的内容拷贝到key对话框，保存。
+    * 测试》仍然在刚才的GitBash中输入：ssh -T git@github.com，如果有提示输入（yes/no?）就输入y，然后回车；
+    * 出现“Hi （GitHub用户名）....”等字样就说明配置成功了。  
 </code></pre><p> （2）配置deployment</p>
-<pre><code>* 进入GitHub，点击第1步里面生成的那个仓库，找到右方中部“Clone or Doenload”，点击后会出现一个选择下拉框，把他变成“Clone with SSH”,然后复制下面地址栏的内容（git@github.com:dagongji10/dagongji10.github.io.git）
-* 找到Hexo》blog里面的配置文件_config.yml，打开，修改以下内容：
-     deploy:
-         type: git
-         repo: git@github.com:dagongji10/dagongji10.github.io.git     //这就是本地文件和GitHub建立联系的地方
-         branch: master   //千万要注意冒号后面有一个空格，一定不能省略
-* 保存之后回到Hexo》blog的GitBash，输入：hexo generate
-* 输入：hexo deploy（部署博客，需要等一会儿），看到Done：git的提示就好啦
+<pre><code>    * 进入GitHub，点击第1步里面生成的那个仓库，找到右方中部“Clone or Doenload”，点击后会出现一个选择下拉框，把他变成“Clone with SSH”,然后复制下面地址栏的内容（git@github.com:dagongji10/dagongji10.github.io.git）
+    * 找到Hexo》blog里面的配置文件_config.yml，打开，修改以下内容：
+         deploy:
+             type: git
+             repo: git@github.com:dagongji10/dagongji10.github.io.git     //这就是本地文件和GitHub建立联系的地方
+             branch: master   //千万要注意冒号后面有一个空格，一定不能省略
+    * 保存之后回到Hexo》blog的GitBash，输入：hexo generate
+    * 输入：hexo deploy（部署博客，需要等一会儿），看到Done：git的提示就好啦
 </code></pre><p> （3）在浏览器地址栏输入<a href="https://dagongji10.github.io/" target="_blank" rel="noopener">https://（GitHub用户名）.github.io/</a>就可以访问了  </p>
 <p>4、写博客与博客发布  </p>
-<pre><code>* 进入本地博客目录，鼠标右键》Git Bash Here            //进入hexo环境
-* hexo clean                                    //清除本地缓存
-* hexo generate                                    //生成个人博客所需的静态页面
-* hexo new &quot;名称&quot;                                //新建博客
-* 然后进入博客目录，找到 ..\source\_posts 路径        //这里就是博客的本地文件
-* 用Markdown来修改博客
-* hexo deploy                                    //发布本地博客
+<pre><code>    * 进入本地博客目录，鼠标右键》Git Bash Here            //进入hexo环境
+    * hexo clean                                    //清除本地缓存
+    * hexo generate                                    //生成个人博客所需的静态页面
+    * hexo new &quot;名称&quot;                                //新建博客
+    * 然后进入博客目录，找到 ..\source\_posts 路径        //这里就是博客的本地文件
+    * 用Markdown来修改博客
+    * hexo deploy                                    //发布本地博客
 </code></pre><p><img src="https://i.imgur.com/a0vKj82.png" alt=""></p>
 <p>注意博客的.md文件（本地）的格式，文件头的属性和属性值，这涉及到Markdown语法，如果格式错误，可能导致博客无法发布到GitHub。常见错误：</p>
 <ol>
 <li>属性值的最前面应该有一个空格，例如：copyright: false，false前面是有空格的；</li>
 </ol>
 <p>5、布置自己的blog（<a href="https://segmentfault.com/a/1190000009544924" title="教程" target="_blank" rel="noopener">参考</a>）<br> （1）在右上角或左上角实现fork me on GitHub：</p>
-<pre><code>* 进入网址：https://github.com/blog/273-github-ribbons，选择喜欢的风格，复制代码；
-* 打开文件：themes/next/layout/_layout.swig，把刚才复制的代码放在&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;的下面，并把href改为你的github地址
+<pre><code>    * 进入网址：https://github.com/blog/273-github-ribbons，选择喜欢的风格，复制代码；
+    * 打开文件：themes/next/layout/_layout.swig，把刚才复制的代码放在&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;的下面，并把href改为你的github地址
 </code></pre><p> （2）添加RSS</p>
-<pre><code>* 进入站点配置文件，找到Plugins，去掉前面的#，在后面添加hexo-generate-feed（plugins: hexo-generate-feed）
-* 进入主题配置文件，找到rss，在后面添加/atom.xml（rss: /atom.xml）
+<pre><code>    * 进入站点配置文件，找到Plugins，去掉前面的#，在后面添加hexo-generate-feed（plugins: hexo-generate-feed）
+    * 进入主题配置文件，找到rss，在后面添加/atom.xml（rss: /atom.xml）
 </code></pre><p> （3）修改文章底部带“#”的标签</p>
-<pre><code>* 修改模板/themes/next/layout/_macro/post.swig，搜索 rel=&quot;tag&quot;&gt;#，将 # 换成 &lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;
+<pre><code>    * 修改模板/themes/next/layout/_macro/post.swig，搜索 rel=&quot;tag&quot;&gt;#，将 # 换成 &lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;
 </code></pre><p> （4）在文章末尾添加“本文结束”标记<br> （5）博文压缩<br> （6）在网站底部加上访客数量<br> （8）在线搜索：next官网》第三方服务有相关教程<br> （9）评论（来必力）</p>
-<pre><code>* 来必力官网注册，点击网站右上角找到管理页面，在弹出的页面添加自己的网站地址，名字，之后复制代码里面data-uid后面的内容（带引号）；
-* 进入主题配置文件，修改livere_uid后面的值为上一步复制的代码，保存即可。
+<pre><code>    * 来必力官网注册，点击网站右上角找到管理页面，在弹出的页面添加自己的网站地址，名字，之后复制代码里面data-uid后面的内容（带引号）；
+    * 进入主题配置文件，修改livere_uid后面的值为上一步复制的代码，保存即可。
 </code></pre><p>  （10）在文章底部增加版权信息</p>
 
       
@@ -1236,26 +1236,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
