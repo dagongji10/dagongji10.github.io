@@ -97,7 +97,7 @@
 
 
 
-  <meta name="keywords" content="," />
+  <meta name="keywords" content="Algorithm," />
 
 
 
@@ -110,18 +110,18 @@
 
 
 
-<meta name="description" content="Dream to Camp.Nuo!">
-<meta name="keywords" content="随笔">
-<meta property="og:type" content="website">
-<meta property="og:title" content="六分之二人生">
-<meta property="og:url" content="http://yoursite.com/六分之二人生.html">
+<meta name="description" content="CrossEntropy Loss交叉熵来源于信息学，表示的是系统内部的紊乱程度，将其应用在概率论中为的是表示样本预测值和真实值之间的差距。交叉熵损失函数的公式为：$$L=$$  Softmax Losssofamax函数softmax损失多样本SoftmaxLoss Triplet Loss">
+<meta name="keywords" content="Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="损失函数">
+<meta property="og:url" content="http://yoursite.com/2018/11/11/损失函数/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="Dream to Camp.Nuo!">
+<meta property="og:description" content="CrossEntropy Loss交叉熵来源于信息学，表示的是系统内部的紊乱程度，将其应用在概率论中为的是表示样本预测值和真实值之间的差距。交叉熵损失函数的公式为：$$L=$$  Softmax Losssofamax函数softmax损失多样本SoftmaxLoss Triplet Loss">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-24T12:17:04.521Z">
+<meta property="og:updated_time" content="2018-11-11T03:00:34.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六分之二人生">
-<meta name="twitter:description" content="Dream to Camp.Nuo!">
+<meta name="twitter:title" content="损失函数">
+<meta name="twitter:description" content="CrossEntropy Loss交叉熵来源于信息学，表示的是系统内部的紊乱程度，将其应用在概率论中为的是表示样本预测值和真实值之间的差距。交叉熵损失函数的公式为：$$L=$$  Softmax Losssofamax函数softmax损失多样本SoftmaxLoss Triplet Loss">
 
 
 
@@ -151,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/六分之二人生.html"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/11/损失函数/"/>
 
 
 
 
 
-  <title>六分之二人生 | 大公鸡の窝</title>
+  <title>损失函数 | 大公鸡の窝</title>
   
 
 
@@ -319,33 +319,203 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/11/损失函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChengQian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大公鸡の窝">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">六分之二人生</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">损失函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-11T10:20:38+08:00">
+                2018-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DeepLearning/损失函数/" itemprop="url" rel="index">
+                    <span itemprop="name">损失函数</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="CrossEntropy-Loss"><a href="#CrossEntropy-Loss" class="headerlink" title="CrossEntropy Loss"></a>CrossEntropy Loss</h2><p>交叉熵来源于信息学，表示的是系统内部的紊乱程度，将其应用在概率论中为的是表示样本预测值和真实值之间的差距。交叉熵损失函数的公式为：<br>$$L=$$</p>
+<hr>
+<h2 id="Softmax-Loss"><a href="#Softmax-Loss" class="headerlink" title="Softmax Loss"></a>Softmax Loss</h2><h3 id="sofamax函数"><a href="#sofamax函数" class="headerlink" title="sofamax函数"></a>sofamax函数</h3><h3 id="softmax损失"><a href="#softmax损失" class="headerlink" title="softmax损失"></a>softmax损失</h3><h3 id="多样本SoftmaxLoss"><a href="#多样本SoftmaxLoss" class="headerlink" title="多样本SoftmaxLoss"></a>多样本SoftmaxLoss</h3><hr>
+<h2 id="Triplet-Loss"><a href="#Triplet-Loss" class="headerlink" title="Triplet Loss"></a>Triplet Loss</h2>
       
     </div>
     
     
     
+
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+	
+	<div>
+      
+        
+      
+	</div>
+	
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="ChengQian wechat" style="width: 200px; max-width: 100%;"/>
+    <div>有问题可以通过微信一起讨论！</div>
+</div>
+
+      </div>
+    
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/03/FeceNet模型学习/" rel="next" title="FeceNet模型学习">
+                <i class="fa fa-chevron-left"></i> FeceNet模型学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -380,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -482,6 +661,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CrossEntropy-Loss"><span class="nav-number">1.</span> <span class="nav-text">CrossEntropy Loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Softmax-Loss"><span class="nav-number">2.</span> <span class="nav-text">Softmax Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sofamax函数"><span class="nav-number">2.1.</span> <span class="nav-text">sofamax函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax损失"><span class="nav-number">2.2.</span> <span class="nav-text">softmax损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多样本SoftmaxLoss"><span class="nav-number">2.3.</span> <span class="nav-text">多样本SoftmaxLoss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Triplet-Loss"><span class="nav-number">3.</span> <span class="nav-text">Triplet Loss</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
