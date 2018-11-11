@@ -97,7 +97,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TensorFlow,FaceNet," />
 
 
 
@@ -110,16 +110,29 @@
 
 
 
-<meta name="description" content="Dream to Camp.Nuo!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="大公鸡の窝">
-<meta property="og:url" content="http://yoursite.com/tags/FaceNet/index.html">
+<meta name="description" content="问题引入原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深">
+<meta name="keywords" content="TensorFlow,FaceNet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FeceNet模型学习">
+<meta property="og:url" content="http://yoursite.com/2018/11/03/FeceNet模型学习/index.html">
 <meta property="og:site_name" content="大公鸡の窝">
-<meta property="og:description" content="Dream to Camp.Nuo!">
+<meta property="og:description" content="问题引入原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/LXUGR0o.png">
+<meta property="og:image" content="https://i.imgur.com/YHNyEUo.png">
+<meta property="og:image" content="https://i.imgur.com/kVa3UiE.png">
+<meta property="og:image" content="https://i.imgur.com/QmNrDje.png">
+<meta property="og:image" content="https://i.imgur.com/2iecCzp.png">
+<meta property="og:image" content="https://i.imgur.com/zYo7EnQ.png">
+<meta property="og:image" content="https://i.imgur.com/3SJy7lu.png">
+<meta property="og:image" content="https://i.imgur.com/Kk9JjUk.png">
+<meta property="og:image" content="https://i.imgur.com/Q99nWJO.png">
+<meta property="og:image" content="https://i.imgur.com/ULi0R1n.png">
+<meta property="og:updated_time" content="2018-11-11T02:16:44.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大公鸡の窝">
-<meta name="twitter:description" content="Dream to Camp.Nuo!">
+<meta name="twitter:title" content="FeceNet模型学习">
+<meta name="twitter:description" content="问题引入原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深">
+<meta name="twitter:image" content="https://i.imgur.com/LXUGR0o.png">
 
 
 
@@ -149,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/FaceNet/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/03/FeceNet模型学习/"/>
 
 
 
 
 
-  <title>标签: FaceNet | 大公鸡の窝</title>
+  <title>FeceNet模型学习 | 大公鸡の窝</title>
   
 
 
@@ -174,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/dagongji10">
 		<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
@@ -315,54 +328,229 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>FaceNet<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/FeceNet模型学习/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChengQian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大公鸡の窝">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/11/03/FeceNet模型学习/" itemprop="url">
-              
-                <span itemprop="name">FeceNet模型学习</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">FeceNet模型学习</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-03T10:09:33+08:00"
-              content="2018-11-03" >
-          11-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T10:09:33+08:00">
+                2018-11-03
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DeepLearning/模型/" itemprop="url" rel="index">
+                    <span itemprop="name">模型</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h2><p>原来的做法：提取图片特征，建立特征之间相互关联的模型，然后利用SVM进行分类判断（例如：有四个轮子的方形物体就是汽车，有翅膀的就是鸟）。这种分类器一来类别比较少，通过不同特征之间的组合就能确定；二来不同类别的特征之间差距较大（例如：人就不可能有轮子）<br>做人脸识别时，不同的人就是一个类别，而且每个人都有鼻子、眼睛、耳朵等，它的区别仅仅在于眼睛大还是小，鼻子高还是低，当然这都是特征，但是属于更深层次的特征。<br>所以，如果这里仍然使用CIFAR10那样的模型，是否还能够较好的识别一张图里面的人是谁呢？所以这里是要进行人脸识别的。</p>
+<p>论文模型的理论依据：对于人脸特征距离而言，相同个体的差距总是小于不同个体<br>解决方法：提取两张图片之间的特征，计算特征之间的欧氏距离，小于距离阈值即为同一个体</p>
+<hr>
+<h2 id="论文关键点"><a href="#论文关键点" class="headerlink" title="论文关键点"></a>论文关键点</h2><p>损失函数：并不是传统的softmax，而是triplet loss<br>三元组（Anchor，Negative，Positive）：Anchor表示当前图像，Negative表示和当前图像不同类的图像，Positive表示和当前图像同一类的图像<br>目标：减小Anchor与Positive之间的距离，增大Anchor与Negative之间的距离<br><img src="https://i.imgur.com/LXUGR0o.png" alt=""><br>triplet loss：以下是损失函数，其中α是一个常量，表示Positive/Negative的边界；<br><img src="https://i.imgur.com/YHNyEUo.png" alt=""></p>
+<h2 id="损失函数分析"><a href="#损失函数分析" class="headerlink" title="损失函数分析"></a>损失函数分析</h2><h3 id="参数α"><a href="#参数α" class="headerlink" title="参数α"></a>参数α</h3><p>当参数 α 值越小时，loss 也就较容易的趋近于 0，于是 Anchor 与 Positive 不需要拉的太近，Anchor 与 Negative 不需要拉的太远，就能使得 loss 很快趋近于 0。这样训练得到的结果，不能够很好的区分相似的图像。<br>当参数 α 值越大时，就需要使得网络参数要拼命地拉近 Anchor、Positive 之间的距离，拉远 Anchor、Negative 之间的距离。但如果参数 α 值设置的太大，很可能最后 loss 保持一个较大的值，难以趋近于0。<br>简而言之，参数 α 值设置的越小，loss 很容易趋近于 0 ，但很难区分相似的图像。margin 值设置的越大，loss 值较难趋近于 0，甚至导致网络不收敛，但可以较有把握的区分较为相似的图像。因此，设置一个合理的参数 α 值很关键，这是衡量相似度的重要指标。</p>
+<h3 id="三元组"><a href="#三元组" class="headerlink" title="三元组"></a>三元组</h3><p>损失函数涉及到一个完整的三元组，这个三元组的选择至关重要。<br>理论上来说应该选择距离最远的Positive、距离最近的Negative去进行训练，在训练中使得Positive不断逼近，Negative不断拉远，但是这样会造成局部极值<strong>（不是很能理解）</strong>，导致网络无法收敛至最优。解决方法是：</p>
+<blockquote>
+<p>（1）对于Positive，在mini-batch中挑选所有的 anchor-positive 图像对，这样可以使得训练的过程更加稳固。？？？<br>（2）对于Negative，采用 semi-hard 约束，也就是距离大于 ||Anchor-Positive|| 的Negative。</p>
+</blockquote>
+<p>具体实施：在单个个体中选择40张图片作为正样本Positive，随机筛选其他人脸图片作为负样本，负样本要求 ||Anchor-Negative||&gt;||Anchor-Positive||。</p>
+<hr>
+<h2 id="Facenet-Structure"><a href="#Facenet-Structure" class="headerlink" title="Facenet Structure"></a>Facenet Structure</h2><p><img src="https://i.imgur.com/kVa3UiE.png" alt=""><br>以上就是论文FaceNet模型的结构，稍微解释一下：<br>Batch：是指输入的人脸图像样本，这里的样本是已经经过人脸检测找到人脸并裁剪到固定尺寸（例如160x160）的图片样本，比如通过MTCNN处理的。<br>Deep Architecture：指的是采用一种深入学习架构，例如imagenet历年冠军网络中的ZF，googlenet等，也就是说这里的模型结构是用的已有的比较优秀的，你也可以根据自己需求选择其他模型。<br>L2 ：是指特征归一化（使其特征的 ||f(x)||2 = 1，这里是2次方的意思，这样所有图像的特征都会被映射到一个超球面上)<br>Embeddings：就是前面经过深度学习网络，L2归一化后生成的特征向量（这个特征向量就代表了输入的一张样本图片）。<br>Triplet Loss： 这里就是模型的损失函数，从它的计算公式可以看出，它需要三个样本作为输入（之前的都是DoubleSample或者是SingleSample）。</p>
+<hr>
+<h2 id="研究内容：影响人脸识别精度的因素"><a href="#研究内容：影响人脸识别精度的因素" class="headerlink" title="研究内容：影响人脸识别精度的因素"></a>研究内容：影响人脸识别精度的因素</h2><p>这相当于是一个对比试验，控制几个主要的变量，来研究每个变量对人脸识别精度的影响。<br>（1）CNN网络：两种，GoogLeNet，Zeiler&amp;Fergus architecture。<br>（2）训练集大小：当然是越大越好。<br>（3）特征维度大小：对比了64/128/256/512四种不同维度，最终确定128维精度最好。<br>（4）图片质量好坏：图片质量越高结果越好。<br>最终的结果是，该模型在LFW数据集上能够取得98%以上的识别精度；如果前期的人脸检测效果很好，最后的人脸识别精度甚至可以达到99.5%以上。</p>
+<hr>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>人脸识别（这个人是谁？）<br>人脸验证（两个图是否是一个人？）<br>人脸聚类（查找相似人群？）</p>
+<h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><p><img src="https://i.imgur.com/QmNrDje.png" alt=""><br>上述图片是模型源码文件，实际上需要的内容在src文件夹中已经囊括了，但是红色下划线的部分也是需要关注的，包括src/align中的内容。</p>
+<h3 id="compare-py"><a href="#compare-py" class="headerlink" title="compare.py"></a>compare.py</h3><p>比较两个图像的相似度，需要输入三个参数：模型路径，图像1路径，图像2路径<br>其中模型是训练好的，在models/facenet文件夹中有；如果没有，可以去GitHub上面下载（需要翻墙），GitHub目前给出的两个模型都是最新的训练好的，选任意一个都可以；或者在<a href="https://pan.baidu.com/s/1aiSq7wGpdHIe6MUKPnXgrA" target="_blank" rel="noopener">百度网盘</a>下载（密码：4dcn）。<br>输入：<br><img src="https://i.imgur.com/2iecCzp.png" alt=""><br>输出：<br><img src="https://i.imgur.com/zYo7EnQ.png" alt=""></p>
+<h3 id="align-dataset-mtcnn-py"><a href="#align-dataset-mtcnn-py" class="headerlink" title="align_dataset_mtcnn.py"></a>align_dataset_mtcnn.py</h3><p>人脸对齐程序，这里要用到数据集LFW；服务器上已经下载好了，在 datasets/lfw；<br>运行时需要输入三个参数：输入图像文件夹，输出图像文件夹，指定裁剪后图片大小；<br>之所以需要裁剪是因为这里采用的是GoogLeNet模型，该模型要求输入图像规格是160*160，而LFW数据集的格式是250*250，所以需要进行预处理；<br>还有，运行时需要导入 src/facenet.py 模块，而这部分脚本在align_dataset_mtcnn.py中有写，只是import方式有误，直接运行会报错“No model named src”，需要改成如下形式：<br><img src="https://i.imgur.com/3SJy7lu.png" alt=""><br>输入：<br><img src="https://i.imgur.com/Kk9JjUk.png" alt=""><br>输出：<br><img src="https://i.imgur.com/Q99nWJO.png" alt=""></p>
+<h3 id="train-tripletloss-py"><a href="#train-tripletloss-py" class="headerlink" title="train_tripletloss.py"></a>train_tripletloss.py</h3><p>训练数据，仍然需要用到上面下载的LFW数据集，这里需要对脚本做两处修改<br>一是LFW数据集路径的修改<br>二是 data/pairs.txt 路径的修改<br>输入：python train_tripletloss.py<br>输出：<br><img src="https://i.imgur.com/ULi0R1n.png" alt=""></p>
+<h3 id="cluster-py实现人脸聚类"><a href="#cluster-py实现人脸聚类" class="headerlink" title="cluster.py实现人脸聚类"></a>cluster.py实现人脸聚类</h3><p>使用mtcnn进行人脸检测并对齐剪裁<br>使用facenet进行embedding（映射）<br>对embedding的特征向量使用欧氏距离进行聚  </p>
+<h3 id="predict-py人脸识别，判断输入图像是谁"><a href="#predict-py人脸识别，判断输入图像是谁" class="headerlink" title="predict.py人脸识别，判断输入图像是谁"></a>predict.py人脸识别，判断输入图像是谁</h3><p>使用mtcnn进行人脸检测并对齐剪裁<br>使用facenet进行embedding（映射）<br>执行predict.py进行人脸识别（需要训练好的SVM模型） </p>
+<h3 id="inception-resnet-v1-py"><a href="#inception-resnet-v1-py" class="headerlink" title="inception_resnet_v1.py"></a>inception_resnet_v1.py</h3><p>定义了GoogLeNet_v1的结构，主要包括3个block、2个reduction<br>在该网络中，block被当做一个块，循环利用；reduction则用来合并特征，可以看做全连接层</p>
+<h3 id="lfw-py"><a href="#lfw-py" class="headerlink" title="lfw.py"></a>lfw.py</h3><p>定义了处理LFW数据的方式</p>
 
       
     </div>
+    
+    
+    
 
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+	
+	<div>
+      
+        
+      
+	</div>
+	
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="ChengQian wechat" style="width: 200px; max-width: 100%;"/>
+    <div>有问题可以通过微信一起讨论！</div>
+</div>
+
+      </div>
+    
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorFlow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
+          
+            <a href="/tags/FaceNet/" rel="tag"><i class="fa fa-tag"></i> FaceNet</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/28/TensorFlow-MTCNN模型训练到实例应用/" rel="next" title="MTCNN模型学习">
+                <i class="fa fa-chevron-left"></i> MTCNN模型学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -370,6 +558,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -392,8 +584,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -494,6 +695,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引入"><span class="nav-number">1.</span> <span class="nav-text">问题引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文关键点"><span class="nav-number">2.</span> <span class="nav-text">论文关键点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失函数分析"><span class="nav-number">3.</span> <span class="nav-text">损失函数分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数α"><span class="nav-number">3.1.</span> <span class="nav-text">参数α</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元组"><span class="nav-number">3.2.</span> <span class="nav-text">三元组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Facenet-Structure"><span class="nav-number">4.</span> <span class="nav-text">Facenet Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#研究内容：影响人脸识别精度的因素"><span class="nav-number">5.</span> <span class="nav-text">研究内容：影响人脸识别精度的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">6.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码解析"><span class="nav-number">7.</span> <span class="nav-text">代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#compare-py"><span class="nav-number">7.1.</span> <span class="nav-text">compare.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-dataset-mtcnn-py"><span class="nav-number">7.2.</span> <span class="nav-text">align_dataset_mtcnn.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train-tripletloss-py"><span class="nav-number">7.3.</span> <span class="nav-text">train_tripletloss.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cluster-py实现人脸聚类"><span class="nav-number">7.4.</span> <span class="nav-text">cluster.py实现人脸聚类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#predict-py人脸识别，判断输入图像是谁"><span class="nav-number">7.5.</span> <span class="nav-text">predict.py人脸识别，判断输入图像是谁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inception-resnet-v1-py"><span class="nav-number">7.6.</span> <span class="nav-text">inception_resnet_v1.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lfw-py"><span class="nav-number">7.7.</span> <span class="nav-text">lfw.py</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -643,6 +860,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
